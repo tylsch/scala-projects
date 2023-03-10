@@ -42,4 +42,5 @@ docker exec -i akka-postgres-db-ecommerce-1 psql -U admin ecommerce -t < shoppin
 1. Implement Shopping Cart Tutorial (replace Akka GRPC with Akka HTTP)
 2. Implement Security Directives (OAuth2) (To be used with Krackend API Key or Keycloak)
 3. Implement STTP APISpec/Tapir (Open API specification)
+4. Implement gRPC endpoints (follow tutorial)
 4. Implement Sangria (GraphQL)
