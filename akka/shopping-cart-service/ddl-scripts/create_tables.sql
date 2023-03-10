@@ -1,6 +1,8 @@
---DROP TABLE IF EXISTS public.event_journal;
+CREATE SCHEMA IF NOT EXISTS cart;
 
-CREATE TABLE IF NOT EXISTS public.event_journal(
+--DROP TABLE IF EXISTS cart.event_journal;
+
+CREATE TABLE IF NOT EXISTS cart.event_journal(
   ordering BIGSERIAL,
   persistence_id VARCHAR(255) NOT NULL,
   sequence_number BIGINT NOT NULL,
@@ -21,11 +23,11 @@ CREATE TABLE IF NOT EXISTS public.event_journal(
   PRIMARY KEY(persistence_id, sequence_number)
 );
 
-CREATE UNIQUE INDEX event_journal_ordering_idx ON public.event_journal(ordering);
+CREATE UNIQUE INDEX event_journal_ordering_idx ON cart.event_journal(ordering);
 
---DROP TABLE IF EXISTS public.event_tag;
+--DROP TABLE IF EXISTS cart.event_tag;
 
-CREATE TABLE IF NOT EXISTS public.event_tag(
+CREATE TABLE IF NOT EXISTS cart.event_tag(
     event_id BIGINT,
     tag VARCHAR(256),
     PRIMARY KEY(event_id, tag),
@@ -35,9 +37,9 @@ CREATE TABLE IF NOT EXISTS public.event_tag(
       ON DELETE CASCADE
 );
 
---DROP TABLE IF EXISTS public.snapshot;
+--DROP TABLE IF EXISTS cart.snapshot;
 
-CREATE TABLE IF NOT EXISTS public.snapshot (
+CREATE TABLE IF NOT EXISTS cart.snapshot (
   persistence_id VARCHAR(255) NOT NULL,
   sequence_number BIGINT NOT NULL,
   created BIGINT NOT NULL,
@@ -53,9 +55,9 @@ CREATE TABLE IF NOT EXISTS public.snapshot (
   PRIMARY KEY(persistence_id, sequence_number)
 );
 
---drop table if exists public.akka_projection_offset_store;
+--drop table if exists cart.akka_projection_offset_store;
 
-CREATE TABLE IF NOT EXISTS public.akka_projection_offset_store (
+CREATE TABLE IF NOT EXISTS cart.akka_projection_offset_store (
     projection_name VARCHAR(255) NOT NULL,
     projection_key VARCHAR(255) NOT NULL,
     current_offset VARCHAR(255) NOT NULL,
@@ -65,11 +67,11 @@ CREATE TABLE IF NOT EXISTS public.akka_projection_offset_store (
     PRIMARY KEY(projection_name, projection_key)
     );
 
-CREATE INDEX IF NOT EXISTS projection_name_index ON public.akka_projection_offset_store (projection_name);
+CREATE INDEX IF NOT EXISTS projection_name_index ON cart.akka_projection_offset_store (projection_name);
 
 --drop table if exists public.akka_projection_management;
 
-CREATE TABLE IF NOT EXISTS public.akka_projection_management (
+CREATE TABLE IF NOT EXISTS cart.akka_projection_management (
   projection_name VARCHAR(255) NOT NULL,
   projection_key VARCHAR(255) NOT NULL,
   paused BOOLEAN NOT NULL,
