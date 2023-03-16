@@ -1,4 +1,4 @@
-package shopping.cart
+package com.fakebiz
 
 import akka.actor.typed.scaladsl.Behaviors
 import akka.actor.typed.ActorSystem

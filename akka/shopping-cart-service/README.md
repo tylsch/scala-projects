@@ -1,9 +1,12 @@
 # Shopping Cart Project
 This project is based on the [Implementing Microservices with Akka](Implementing Microservices with Akka) tutorial by Lightbend with the following modifications:
 
-- Upgraded library dependencies to latest versions
+- Upgraded to scala 2.13.10
+- Upgraded library dependencies and plugins to the latest versions
+  -  SBT version is still 1.5.6, have an open ticket with Lightbend [https://discuss.lightbend.com/t/lightbend-tutorial-doesnt-work-on-sbt-version-1-8-2/10225](here)
 - Uses Red Panda instead of Apache Kafka for message broker
 - Defines a separate database schema for Akka Persistence tables
+- Project Structure follows inspired by Clean Architecture pattern
 
 ## Running the sample code
 
