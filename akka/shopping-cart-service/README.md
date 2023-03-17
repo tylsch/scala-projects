@@ -1,12 +1,11 @@
 # Shopping Cart Project
-This project is based on the [Implementing Microservices with Akka](Implementing Microservices with Akka) tutorial by Lightbend with the following modifications:
+This project is based on the [Implementing Microservices with Akka](Implementing Microservices with Akka) tutorial by Lightbend and [Akka gRPC Shopping Cart Example](https://github.com/akka/akka-projection/tree/main/samples/grpc/shopping-cart-service-scala) with the following modifications:
 
 - Upgraded to scala 2.13.10
 - Upgraded library dependencies and plugins to the latest versions
-  -  SBT version is still 1.5.6, have an open ticket with Lightbend [https://discuss.lightbend.com/t/lightbend-tutorial-doesnt-work-on-sbt-version-1-8-2/10225](here)
 - Uses Red Panda instead of Apache Kafka for message broker
 - Defines a separate database schema for Akka Persistence tables
-- Project Structure follows inspired by Clean Architecture pattern
+- Project structure inspired by Clean Architecture pattern
 
 ## Running the sample code
 
@@ -42,7 +41,9 @@ docker exec -i akka-postgres-db-ecommerce-1 psql -U admin ecommerce -t < shoppin
     ```
 
 ## TODO Items
-1. Implement Shopping Cart Tutorial (replace Akka GRPC with Akka HTTP)
+1. Implement Shopping Cart Tutorial 
+   2. Use Route DSL of Akka HTTP instead of Akka gRPC
+   2. Replace ScalalikeJdbc with Slick for read-side repository
 2. Implement Security Directives (OAuth2) (To be used with Krackend API Key or Keycloak)
 3. Implement STTP APISpec/Tapir (Open API specification)
 4. Implement gRPC endpoints (follow tutorial)
